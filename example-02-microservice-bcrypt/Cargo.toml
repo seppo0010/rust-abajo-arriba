@@ -5,3 +5,5 @@ authors = ["root"]
 
 [dependencies]
 nom = "*"
+tokio-core = "*"
+futures = "*"

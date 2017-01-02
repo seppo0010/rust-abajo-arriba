@@ -1,4 +1,5 @@
 use std::str;
+use nom::IResult;
 use nom::{newline,digit,alphanumeric,space,not_line_ending};
 
 #[derive(Debug, PartialEq)]
@@ -6,6 +7,12 @@ pub enum BaasProtocol {
 	SetCost(u32),
 	Hash(String),
 	Verify(String, Vec<u8>),
+}
+
+impl BaasProtocol {
+	pub fn parse(input: &[u8]) -> IResult<&[u8], BaasProtocol> {
+		parse(input)
+	}
 }
 
 named!(cost<BaasProtocol>, do_parse!(tag!("cost") >> cost: digit >> newline >> (BaasProtocol::SetCost(str::from_utf8(cost).unwrap().parse().unwrap()))));
