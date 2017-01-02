@@ -6,7 +6,7 @@ use nom::{newline,digit,alphanumeric,space,not_line_ending};
 pub enum BaasProtocol {
 	SetCost(u32),
 	Hash(String),
-	Verify(String, Vec<u8>),
+	Verify(String, String),
 }
 
 impl BaasProtocol {
@@ -17,7 +17,7 @@ impl BaasProtocol {
 
 named!(cost<BaasProtocol>, do_parse!(tag!("cost") >> cost: digit >> newline >> (BaasProtocol::SetCost(str::from_utf8(cost).unwrap().parse().unwrap()))));
 named!(hash<BaasProtocol>, do_parse!(tag!("hash") >> s: alphanumeric >> newline >> (BaasProtocol::Hash(String::from_utf8(s.to_vec()).unwrap()))));
-named!(verify<BaasProtocol>, do_parse!(tag!("verify") >> hash: alphanumeric >> space >> verify: not_line_ending >> newline >> (BaasProtocol::Verify(String::from_utf8(hash.to_vec()).unwrap(), verify.to_owned()))));
+named!(verify<BaasProtocol>, do_parse!(tag!("verify") >> hash: alphanumeric >> space >> verify: not_line_ending >> newline >> (BaasProtocol::Verify(String::from_utf8(hash.to_vec()).unwrap(), String::from_utf8(verify.to_vec()).unwrap()))));
 
 named!(parse<BaasProtocol>, alt!(cost | hash | verify));
 
@@ -37,5 +37,5 @@ fn test_hash() {
 
 #[test]
 fn test_verify() {
-	assert_eq!(parse("verifyhello ab&\n".as_bytes()).unwrap().1, BaasProtocol::Verify("hello".to_owned(), "ab&".as_bytes().to_vec()));
+	assert_eq!(parse("verifyhello $y2%$ab&$y2%$ab&$y2%$ab&$y2%$ab&\n".as_bytes()).unwrap().1, BaasProtocol::Verify("hello".to_owned(), "$y2%$ab&$y2%$ab&$y2%$ab&$y2%$ab&".to_owned()));
 }

@@ -7,3 +7,7 @@ authors = ["root"]
 nom = "*"
 tokio-core = "*"
 futures = "*"
+service-fn = { git = "https://github.com/tokio-rs/service-fn" }
+tokio-proto = { git = "https://github.com/tokio-rs/tokio-proto" }
+tokio-service = { git = "https://github.com/tokio-rs/tokio-service" }
+bcrypt = "0.1.3"
