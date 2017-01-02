@@ -1,5 +1,5 @@
 [package]
-name = "example-01-microservice"
+name = "example-01-microservice-revstring"
 version = "0.1.0"
 authors = ["root"]
 

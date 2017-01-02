@@ -1,5 +1,5 @@
 [root]
-name = "example-01-microservice"
+name = "example-01-microservice-revstring"
 version = "0.1.0"
 dependencies = [
  "service-fn 0.1.0 (git+https://github.com/tokio-rs/service-fn)",
