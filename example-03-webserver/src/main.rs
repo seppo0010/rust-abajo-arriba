@@ -4,6 +4,7 @@ extern crate tokio_proto;
 extern crate tokio_service;
 
 use std::io;
+use std::io::Read;
 use std::fs::File;
 
 use futures::future;
@@ -21,7 +22,20 @@ impl Service for HelloWorld {
 
     fn call(&mut self, request: Request) -> Self::Future {
         let mut resp = Response::new();
-        resp.body("Hello, world!");
+        match File::open(&request.path()[1..]) {
+            Ok(ref mut f) => {
+                let mut s = String::new();
+                if let Err(_e) = f.read_to_string(&mut s) {
+                    resp.status_code(500, "Internal Server Error")
+                } else {
+                    resp.body(&*s)
+                }
+            },
+            Err(ref e) =>  match e.kind() {
+                io::ErrorKind::NotFound => resp.status_code(404, "Not Found"),
+                _ => resp.status_code(500, "Internal Server Error"),
+            }
+        };
         future::ok(resp)
     }
 }
