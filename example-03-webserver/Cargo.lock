@@ -3,7 +3,7 @@ name = "example-03-webserver"
 version = "0.1.0"
 dependencies = [
  "futures 0.1.7 (registry+https://github.com/rust-lang/crates.io-index)",
- "tokio-minihttp 0.1.0 (git+https://github.com/tokio-rs/tokio-minihttp)",
+ "tokio-minihttp 0.1.0 (git+https://github.com/seppo0010/tokio-minihttp?rev=http-body)",
  "tokio-proto 0.1.0 (git+https://github.com/tokio-rs/tokio-proto)",
  "tokio-service 0.1.0 (git+https://github.com/tokio-rs/tokio-service)",
 ]
@@ -173,7 +173,7 @@ dependencies = [
 [[package]]
 name = "tokio-minihttp"
 version = "0.1.0"
-source = "git+https://github.com/tokio-rs/tokio-minihttp#6ac81b310961d6140f976c46c71d332539166af7"
+source = "git+https://github.com/seppo0010/tokio-minihttp?rev=http-body#4ea565f1a670ed137c1041535ff3160ce1204728"
 dependencies = [
  "futures 0.1.7 (registry+https://github.com/rust-lang/crates.io-index)",
  "httparse 1.2.1 (registry+https://github.com/rust-lang/crates.io-index)",
@@ -255,7 +255,7 @@ dependencies = [
 "checksum take 0.1.0 (registry+https://github.com/rust-lang/crates.io-index)" = "b157868d8ac1f56b64604539990685fa7611d8fa9e5476cf0c02cf34d32917c5"
 "checksum time 0.1.35 (registry+https://github.com/rust-lang/crates.io-index)" = "3c7ec6d62a20df54e07ab3b78b9a3932972f4b7981de295563686849eb3989af"
 "checksum tokio-core 0.1.2 (registry+https://github.com/rust-lang/crates.io-index)" = "52416b3e937abac22a543a7f1c66bd37feb60137ff1ab42390fa02df85347e58"
-"checksum tokio-minihttp 0.1.0 (git+https://github.com/tokio-rs/tokio-minihttp)" = "<none>"
+"checksum tokio-minihttp 0.1.0 (git+https://github.com/seppo0010/tokio-minihttp?rev=http-body)" = "<none>"
 "checksum tokio-proto 0.1.0 (git+https://github.com/tokio-rs/tokio-proto)" = "<none>"
 "checksum tokio-service 0.1.0 (git+https://github.com/tokio-rs/tokio-service)" = "<none>"
 "checksum void 1.0.2 (registry+https://github.com/rust-lang/crates.io-index)" = "6a02e4885ed3bc0f2de90ea6dd45ebcbb66dacffe03547fadbb0eeae2770887d"

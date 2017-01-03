@@ -7,4 +7,4 @@ authors = ["root"]
 futures = "0.1.1"
 tokio-proto = { git = "https://github.com/tokio-rs/tokio-proto" }
 tokio-service = { git = "https://github.com/tokio-rs/tokio-service" }
-tokio-minihttp = { git = "https://github.com/tokio-rs/tokio-minihttp" }
+tokio-minihttp = { git = "https://github.com/seppo0010/tokio-minihttp", rev = "http-body" }
