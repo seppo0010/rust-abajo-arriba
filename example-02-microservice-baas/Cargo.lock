@@ -1,5 +1,5 @@
 [root]
-name = "example-02-microservice-bcrypt"
+name = "example-02-microservice-baas"
 version = "0.1.0"
 dependencies = [
  "bcrypt 0.1.3 (registry+https://github.com/rust-lang/crates.io-index)",

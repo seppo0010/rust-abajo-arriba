@@ -1,5 +1,5 @@
 [package]
-name = "example-02-microservice-bcrypt"
+name = "example-02-microservice-baas"
 version = "0.1.0"
 authors = ["root"]
 
