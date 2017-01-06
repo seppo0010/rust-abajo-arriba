@@ -1,0 +1,7 @@
+[package]
+name = "example-05-fileeditor"
+version = "0.1.0"
+authors = ["root"]
+
+[dependencies]
+webplatform = { "git" = "https://github.com/seppo0010/rust-webplatform", rev = "unstable" }
