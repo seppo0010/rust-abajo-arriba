@@ -22,16 +22,13 @@ fn main() {
     ");
 
     let select_rc = Rc::new(document.element_query("select").unwrap());
-
     let div_rc = Rc::new(document.element_query("div").unwrap());
-    let span = document.element_query("span").unwrap();
     let textarea_rc = Rc::new(document.element_query("textarea").unwrap());
-    let button = document.element_query("button").unwrap();
     div_rc.clone().style_set_str("display", "none");
+    let filename_rc = Rc::new(RefCell::new(None));
 
+    let span = document.element_query("span").unwrap();
     let textarea = textarea_rc.clone();
-    let filename_rc:Rc<RefCell<Option<String>>> = Rc::new(RefCell::new(None));
-
     let filename = filename_rc.clone();
     let select = select_rc.clone();
     let div = div_rc.clone();
@@ -58,6 +55,7 @@ fn main() {
     let filename = filename_rc.clone();
     let select = select_rc.clone();
     let div = div_rc.clone();
+    let button = document.element_query("button").unwrap();
     button.on("click", move |_| {
         let value = textarea.prop_get_str("value");
         if let Some(ref s) = *filename.borrow() {
