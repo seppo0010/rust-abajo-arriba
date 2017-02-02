@@ -1,2 +1,0 @@
-Run ../example-03-webserver/target/debug/example-03-webserver
-open http://localhost:8080/index.html
