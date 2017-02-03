@@ -1,8 +1,13 @@
-To run this example you need to go to example-03-webserver and run `cargo build`.
+# Example 5: file editor
 
-Then come to this directory and run `cargo build --target=asmjs-unknown-emscripten`
+Un dropdown con un textarea. Está hecho para correr con `example-03-webserver`
+de backend y permite editar una lista de archivos.
 
-From this directory, start the server
-`../example-03-webserver/target/debug/example-03-webserver`
+# Instrucciones
 
-Open your browser and go to http://localhost:8080/index.html
+```bash
+$ cargo build --target=asmjs-unknown-emscripten
+$ pushd ../example-03-webserver && cargo build && popd
+$ ../example-03-webserver/target/debug/example-03-webserver &
+$ firefox http://localhost:8080/index.htlm
+```
