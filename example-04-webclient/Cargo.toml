@@ -1,7 +1,0 @@
-[package]
-name = "example-04-webclient"
-version = "0.1.0"
-authors = ["root"]
-
-[dependencies]
-webplatform = { "git" = "https://github.com/tcr/rust-webplatform" }
